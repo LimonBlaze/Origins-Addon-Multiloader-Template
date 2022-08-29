@@ -48,7 +48,7 @@ public class ForgePlatformHelper implements IPlatformHelper {
 
     @Override
     public <P extends Power> List<P> getPowers(LivingEntity entity, Class<P> powerClass, PowerFactory<P> powerFactory) {
-        return IPowerContainer.getPowers(entity, powerFactory.getWrapped()).stream().map(configuredPowerHolder -> ((FabricPowerConfiguration<P>)configuredPowerHolder.get().getConfiguration()).power().apply((PowerType<P>) configuredPowerHolder.get().getPowerType(), entity)).toList();
+        return IPowerContainer.getPowers(entity, powerFactory.getWrapped()).stream().map(configuredPower -> ((FabricPowerConfiguration<P>)configuredPower.getConfiguration()).power().apply((PowerType<P>) configuredPower.getPowerType(), entity)).toList();
     }
 
     @Override
